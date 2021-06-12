@@ -1,0 +1,16 @@
+.topbar {
+    width: 100%;
+    // position: fixed;
+    top: 0;
+    height: 12vh;
+    z-index: 101;
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.05);
+    background-color: #fff159;
+    margin-bottom: 5vh;
+}
+
+.topbar_med {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

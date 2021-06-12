@@ -1,5 +1,5 @@
-export const CAJA_BUSQUEDA = "/"
+export const PRINCIPAL = "/"
 
-export const RESULTADO_BUSQUEDA = "/items?search=:query"
+export const PRODUCTOS = "/items?search=:search"
 
 export const DETALLE_PRODUCTO = "/items/:id"
