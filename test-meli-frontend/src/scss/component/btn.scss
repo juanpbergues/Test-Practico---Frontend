@@ -1,35 +1,60 @@
 .search-btn {
-    border-radius: 5px;
-    padding: 10px 25px;
-    margin-top: 10px;
-    transition: all 0.4s;
-    font-size: 14px;
-    position: relative;
-    overflow: hidden;
-    z-index: 0;
+  border-radius: 5px;
+  padding: 10px 10px;
+  margin-top: 10px;
+  transition: all 0.4s;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &:active:focus {
+    outline: none;
+    box-shadow: none !important;
+    cursor: pointer;
 
     &:before {
-        position: absolute;
-        height: 0;
-        width: 0;
-        border-radius: 50%;
-        background-color: #bedcfa;
-        transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
-        transform: translate(-50%, -50%);
-        z-index: -1;
-        content: "";
-        top: 0;
-        left: 0;
-      }
+      height: 500%;
+      width: 225%;
+    }
+  }
 
-      &:hover, &:focus, &:active, &:active:focus {
-        outline: none;
-        box-shadow: none !important;
-        cursor: pointer;
-    
-        &:before {
-          height: 500%;
-          width: 225%;
-        }
-      }
+  &:disabled {
+    background-color: #dddddd;
+    border-color: #dddddd;
+    cursor: not-allowed;
+  }
+}
+
+.btn {
+  border-radius: 5px;
+  padding: 10px 25px;
+  margin-bottom: 20px;
+  transition: all 0.4s;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+
+  &.btn-success {
+    background-color: #4040ff;
+    border-color: #4040ff;
+    color: #FAFAFA;
+
+    &:before {
+      background-color: #9090ff;
+      color: #000000;
+    }
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:active:focus {
+      background-color: #9090ff;
+      color: #000000;
+    }
+  }
 }

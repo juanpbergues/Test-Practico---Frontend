@@ -2,9 +2,12 @@
     text-align: center;
 }
 
+@import 'base/scaffolding.scss';
 @import 'component/btn.scss';
 @import 'component/input.scss';
 @import 'component/topbar.scss';
 @import 'component/logo.scss';
 @import 'component/card.scss';
 @import 'component/text.scss';
+@import 'component/spinner.scss';
+@import 'component/product.scss'

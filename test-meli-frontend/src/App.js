@@ -4,6 +4,7 @@ import * as Routes from 'constants/routes'
 import CajaBusqueda from 'components/CajaBusqueda/CajaBusqueda'
 import Productos from 'components/Productos/Productos';
 import DetalleProducto from 'components/DetalleProducto/DetalleProducto';
+import Inicio from  'components/Inicio/Inicio'
 
 function App() {
   return (
@@ -11,8 +12,8 @@ function App() {
       <BrowserRouter>
         <CajaBusqueda />
         <Switch>
-          <Route path={Routes.PRINCIPAL} exact component={() => <CajaBusqueda />} />
-          <Route path={Routes.PRODUCTOS} exact component={() => <Productos />} />
+          <Route path={Routes.PRINCIPAL} exact component={() => <Inicio />} />
+          <Route path={Routes.PRODUCTOS} component={() => <Productos />} />
           <Route path={Routes.DETALLE_PRODUCTO} exact component={() => <DetalleProducto />} />
         </Switch>
       </BrowserRouter>
