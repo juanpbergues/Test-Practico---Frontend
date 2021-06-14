@@ -10,3 +10,4 @@ Para Ejecutar el proyecto:
 
 4- Ejecutar el comando: npm start
 
+El proyecto se ejecutará en un servidor local, localhost:3000
