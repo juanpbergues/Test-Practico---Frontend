@@ -2,11 +2,11 @@ import React, { useState, useEffect, Fragment } from 'react'
 import { useHistory } from "react-router-dom";
 import Spinner from 'components/Utils/Spinner'
 import { searchProducts } from 'api/search'
-import { useParams } from "react-router";
+import { withRouter } from 'react-router-dom'
 
-const Productos = () => {
+const Productos = (props) => {
     const history = useHistory();
-    const { query } = useParams();
+    const query = props.location.state ? props.location.state.query : ''
 
     const handleRouteProductDetail = (id) => {
         history.push(`/items/${id}`);
@@ -87,4 +87,4 @@ const Productos = () => {
     )
 }
 
-export default Productos
+export default withRouter(Productos)

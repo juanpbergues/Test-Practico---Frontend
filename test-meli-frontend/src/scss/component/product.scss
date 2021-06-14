@@ -5,8 +5,8 @@
     padding: 5%;
 }
 
-.product{
-    display: flex
+.product {
+    display: flex;
 }
 
 .product-data {
@@ -18,3 +18,10 @@
     display: block;
     width: 100%;
 }
+
+.extra-data {
+    display: inline-flex;
+    color: gray;
+
+}
+

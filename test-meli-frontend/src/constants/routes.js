@@ -1,5 +1,5 @@
 export const PRINCIPAL = "/"
 
-export const PRODUCTOS = "/items/search=:query"
+export const PRODUCTOS = "/items"
 
 export const DETALLE_PRODUCTO = "/items/:id"

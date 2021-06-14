@@ -15,11 +15,15 @@ const DetalleProducto = () => {
                 const resultado = await getProductDetail(id)
                 console.log(resultado)
                 if (resultado.status === "OK") {
-                    console.log(resultado.data)
                     setProduct(resultado.data.item)
                     setLoading(false)
-                } else {
-                    console.log()
+                }
+                else if (resultado.status === 'UNAUTHORIZED') {
+                    alert(resultado.message);
+                    setLoading(false)
+                }
+                else {
+                    alert(resultado.message);
                     setLoading(false)
                 }
             } catch (err) {
@@ -54,6 +58,11 @@ const DetalleProducto = () => {
                                     <div className="product">
                                         <img src={product.picture} alt="Avatar" style={{ width: '75%' }} />
                                         <div className="product-data">
+                                            <div className='extra-data'>
+                                                <p>{product.condition === "new" ? 'Nuevo' : (product.condition === "used" ? 'Usado' : 'No Especificado')}</p>
+                                                <p> - </p>
+                                                <p>{product.sold_quantity} vendidos</p>
+                                            </div>
                                             <h2>{product.title}</h2>
                                             <div className='price'>
                                                 <h1>$ {product.price.amount}</h1>
@@ -71,7 +80,9 @@ const DetalleProducto = () => {
                                 </div>
                             </>
                         ) : (
-                            null
+                            <div>
+                                El detalle del producto no se encuentra disponible
+                            </div>
                         )
                     }
                 </>

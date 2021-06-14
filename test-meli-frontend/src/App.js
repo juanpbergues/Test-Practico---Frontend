@@ -13,7 +13,7 @@ function App() {
         <CajaBusqueda />
         <Switch>
           <Route path={Routes.PRINCIPAL} exact component={() => <Inicio />} />
-          <Route path={Routes.PRODUCTOS} component={() => <Productos />} />
+          <Route path={Routes.PRODUCTOS} exact component={() => <Productos />} />
           <Route path={Routes.DETALLE_PRODUCTO} exact component={() => <DetalleProducto />} />
         </Switch>
       </BrowserRouter>
