@@ -64,7 +64,7 @@ const DetalleProducto = () => {
                                                 <p>{product.sold_quantity} vendidos</p>
                                             </div>
                                             <h2>{product.title}</h2>
-                                            <div className='price'>
+                                            <div className='price price-detail'>
                                                 <h1>$ {product.price.amount}</h1>
                                                 <h4 className='price-decimals'>{product.price.decimals ? product.price.decimals : '00'}</h4>
                                             </div>

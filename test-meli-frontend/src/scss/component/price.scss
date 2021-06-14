@@ -1,7 +1,15 @@
 .price {
     display: flex;
     width: 100%;
-    justify-content: center;
+
+    &.price-detail{
+        justify-content: center;
+    }
+
+
+    &.price-card {
+        justify-content: flex-start
+    }
 }
 
 .price-decimals{

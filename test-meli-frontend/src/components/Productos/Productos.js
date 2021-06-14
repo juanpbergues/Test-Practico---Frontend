@@ -56,23 +56,26 @@ const Productos = (props) => {
                                     ))
                                 }
                             </div>
-                        {products.map((product) => (
-                            <div
-                                className="card"
-                                onClick={() => handleRouteProductDetail(product.id)}
-                                key={product.id}
-                            >
-                                <img src={product.picture} alt="Imagen" style={{ width: '25%' }} />
-                                <div className="container">
-                                    <div>
-                                        <h2 style={{ display: 'flex' }} >$ {product.price.amount},{product.price.decimals ? product.price.decimals : '00'}</h2>
-                                        <h3>{product.title}</h3>
-                                    </div>
-                                    <div className='card-ubicacion'>
-                                        <p className='text-marker'></p>  {/* Aca iria la UBICACION pero no esta contenplada en el objeto solicitado */}
+                            {products.map((product) => (
+                                <div
+                                    className="card"
+                                    onClick={() => handleRouteProductDetail(product.id)}
+                                    key={product.id}
+                                >
+                                    <img src={product.picture} alt="Imagen" style={{ width: '25%' }} />
+                                    <div className="container">
+                                        <div>
+                                        <div className='price price-card'>
+                                                <h2>$ {product.price.amount}</h2>
+                                                <h5 className='price-decimals'>{product.price.decimals ? product.price.decimals : '00'}</h5>
+                                            </div>
+                                            <h3>{product.title}</h3>
+                                        </div>
+                                        <div className='card-ubicacion'>
+                                            <p className='text-marker'></p>  {/* Aca iria la UBICACION pero no esta contenplada en el objeto solicitado */}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             ))}
                         </>
                     ) : (
