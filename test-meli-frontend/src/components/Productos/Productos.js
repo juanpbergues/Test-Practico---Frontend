@@ -49,9 +49,9 @@ const Productos = (props) => {
                             <div className='breadcrumbs'>
                                 {
                                     categories.map((category, index) => (
-                                        <Fragment key={category.id}>
+                                        <Fragment key={index}>
                                             <p className='breadcrumb-item' >{index === 0 ? '' : '>'}</p>
-                                            <p className='breadcrumb-item' >{category.name} </p>
+                                            <p className='breadcrumb-item' >{category} </p>
                                         </Fragment>
                                     ))
                                 }
