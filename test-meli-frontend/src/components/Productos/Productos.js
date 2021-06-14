@@ -1,47 +1,40 @@
-import React, { useState, useEffect } from 'react'
-import logo from 'assets/images/mercadolibreIcon.png'
+import React, { useState, useEffect, Fragment } from 'react'
 import { useHistory } from "react-router-dom";
 import Spinner from 'components/Utils/Spinner'
+import { searchProducts } from 'api/search'
+import { useParams } from "react-router";
 
 const Productos = () => {
     const history = useHistory();
+    const { query } = useParams();
 
     const handleRouteProductDetail = (id) => {
         history.push(`/items/${id}`);
     }
 
+    const [products, setProducts] = useState(null)
+    const [categories, setCategories] = useState(null)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        setLoading(false)
-    }, [])
-
-    const productos = [
-        {
-            id: 1,
-            precio: '1000',
-            descripcion: 'Aipad Touch Nuevo, 3GB',
-            ubicacion: 'Cordoba'
-        },
-        {
-            id: 2,
-            precio: '1000',
-            descripcion: 'Aipad Touch Nuevo, 3GB',
-            ubicacion: 'Cordoba'
-        },
-        {
-            id: 3,
-            precio: '1000',
-            descripcion: 'Aipad Touch Nuevo, 3GB',
-            ubicacion: 'Cordoba'
-        },
-        {
-            id: 4,
-            precio: '1000',
-            descripcion: 'Aipad Touch Nuevo, 3GB',
-            ubicacion: 'Cordoba'
+        async function searchProductsApi(query) {
+            try {
+                const resultado = await searchProducts(query)
+                console.log(resultado)
+                if (resultado.status === "OK") {
+                    setProducts(resultado.data.items)
+                    setCategories(resultado.data.categories)
+                    setLoading(false)
+                } else {
+                    console.log()
+                    setLoading(false)
+                }
+            } catch (err) {
+                alert("se produjo un error");
+            }
         }
-    ]
+        searchProductsApi(query)
+    }, [query])
 
     return (
         <>
@@ -51,25 +44,42 @@ const Productos = () => {
                 </div>
             ) : (
                 <>
-                    {
-                        productos.map((producto) => (
+                    {products && categories ? (
+                        <>
+                            <div className='breadcrumbs'>
+                                {
+                                    categories.map((category, index) => (
+                                        <Fragment key={category.id}>
+                                            <p className='breadcrumb-item' >{index === 0 ? '' : '>'}</p>
+                                            <p className='breadcrumb-item' >{category.name} </p>
+                                        </Fragment>
+                                    ))
+                                }
+                            </div>
+                        {products.map((product) => (
                             <div
-                                class="card"
-                                onClick={() => handleRouteProductDetail(producto.id)}
-                                key={producto.id}
+                                className="card"
+                                onClick={() => handleRouteProductDetail(product.id)}
+                                key={product.id}
                             >
-                                <img src={logo} alt="Imagen" style={{ width: '25%' }} />
+                                <img src={product.picture} alt="Imagen" style={{ width: '25%' }} />
                                 <div className="container">
                                     <div>
-                                        <h3><b>$ {producto.precio}</b></h3>
-                                        <p>{producto.descripcion}</p>
+                                        <h2 style={{ display: 'flex' }} >$ {product.price.amount},{product.price.decimals ? product.price.decimals : '00'}</h2>
+                                        <h3>{product.title}</h3>
                                     </div>
                                     <div className='card-ubicacion'>
-                                        <p className='text-marker'>{producto.ubicacion}</p>
+                                        <p className='text-marker'></p>  {/* Aca iria la UBICACION pero no esta contenplada en el objeto solicitado */}
                                     </div>
                                 </div>
                             </div>
-                        ))
+                            ))}
+                        </>
+                    ) : (
+                        <div>
+                            No existen resultados para mostrar
+                        </div>
+                    )
                     }
                 </>
             )}

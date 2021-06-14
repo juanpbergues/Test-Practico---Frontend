@@ -21,13 +21,13 @@ const CajaBusqueda = () => {
         <div className="topbar">
             {/* <form
             > */}
-            <div className='topbar_med'>
-                <img src={Logo} alt="Icono" className='logo' />
-                <input className='input' type="text" id="search" name="search" placeholder="Nunca dejes de buscar" onChange={handleSearchChange} />
-                <button disabled={valueSearch === '' ? true : false} className='search-btn' type="submit" value={valueSearch} onClick={() => handleSearch()}>
-                    <FontAwesomeIcon icon={faSearch} />
-                </button>
-            </div>
+                <div className='topbar_med'>
+                    <img src={Logo} alt="Icono" className='logo' />
+                    <input className='input' type="text" id="search" name="search" placeholder="Nunca dejes de buscar" onChange={handleSearchChange} />
+                    <button disabled={valueSearch === '' ? true : false} className='search-btn' type="submit" value={valueSearch} onClick={() => handleSearch()}>
+                        <FontAwesomeIcon icon={faSearch} />
+                    </button>
+                </div>
             {/* </form> */}
         </div>
     )
