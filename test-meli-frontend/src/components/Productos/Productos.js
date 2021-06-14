@@ -72,7 +72,7 @@ const Productos = (props) => {
                                             <h3>{product.title}</h3>
                                         </div>
                                         <div className='card-ubicacion'>
-                                            <p className='text-marker'></p>  {/* Aca iria la UBICACION pero no esta contenplada en el objeto solicitado */}
+                                            <p className='text-marker'>{product.location}</p>  {/* Aca iria la UBICACION pero no esta contenplada en el objeto solicitado */}
                                         </div>
                                     </div>
                                 </div>
